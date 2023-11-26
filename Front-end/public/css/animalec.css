@@ -1661,6 +1661,14 @@ pre code {
 }
 
 @media (max-width: 575.98px) {
+  .table th, .table td {
+    padding: 0.20em;
+    font-size: 12px;
+  }
+  td .btn {
+    font-size: 12px;
+  }
+
   .table-responsive-sm {
     display: block;
     width: 100%;
