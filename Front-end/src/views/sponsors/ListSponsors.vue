@@ -137,7 +137,7 @@ export default {
           <b>Nome:</b> ${sponsor.name} <br>
           <b>Animal:</b> ${sponsor.animal} <br>
           <b>Grupo:</b> ${sponsor.group} <br>
-          <b>Descrição:</b>${sponsor.description}<br>
+          <b>Descrição:</b> ${sponsor.description}<br>
           <b>Anos de Experiência:</b> ${sponsor.years_experience} <br>
           <b>Localização:</b> ${sponsor.location.city} / ${sponsor.location.country}
         </p>

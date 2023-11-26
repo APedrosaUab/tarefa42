@@ -68,6 +68,8 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  max-width: 1280px;
+  margin: auto;
 }
 
 .avatar {
@@ -4277,6 +4279,7 @@ input[type="button"].btn-block {
 
 .navbar-dark .navbar-brand {
   color: #fff;
+  margin: auto;
 }
 
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
@@ -9564,7 +9567,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .page-section {
-  padding: 6rem 0;
+  padding: 2rem 0;
 }
 
 .page-section .page-section-heading {

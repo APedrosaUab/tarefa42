@@ -137,7 +137,7 @@ export default {
         <b>Nome:</b> ${expert.name} <br>
         <b>Animal:</b> ${expert.animal} <br>
         <b>Grupo:</b> ${expert.group} <br>
-        <b>Descrição:</b>${expert.description}<br>
+        <b>Descrição:</b> ${expert.description}<br>
         <b>Anos de Experiência:</b> ${expert.years_experience} <br>
         <b>Localização:</b> ${expert.location.city} / ${expert.location.country}
       </p>
