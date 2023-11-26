@@ -3,6 +3,8 @@ module.exports = {
         uri: 'mongodb://localhost:27017/test',
         collections: {
             animal: 'animals',
+            expert: 'experts',
+            sponsor: 'sponsors',
             question: 'questions',
             quiz: 'quizzes',
             user: 'users',

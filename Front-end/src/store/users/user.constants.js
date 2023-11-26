@@ -1,7 +1,7 @@
 // Action types
 export const AUTH_LOGIN = "authLogin";
 export const AUTH_REGISTER = "authRegister";
-export const AUTH_INFO = "authGetInfo"
+export const AUTH_INFO = "authGetInfo";
 
 // ANIMALS
 export const FETCH_ANIMAL = "fetchAnimal";
@@ -18,10 +18,24 @@ export const EDIT_USER = "editUser";
 export const REMOVE_USER = "removeUser";
 export const SET_USERS = "setUsers";
 
+// USERS
+export const FETCH_EXPERT = "fetchExpert";
+export const FETCH_EXPERTS = "fetchExperts";
+export const ADD_EXPERT = "addExpert";
+export const EDIT_EXPERT = "editExpert";
+export const REMOVE_EXPERT = "removeExpert";
+export const SET_EXPERTS = "setExperts";
+
+// USERS
+export const FETCH_SPONSOR = "fetchSponsor";
+export const FETCH_SPONSORS = "fetchSponsors";
+export const ADD_SPONSOR = "addSponsor";
+export const EDIT_SPONSOR = "editSponsor";
+export const REMOVE_SPONSOR = "removeSponsor";
+export const SET_SPONSORS = "setSponsors";
+
 // COMMON
 export const SET_MESSAGE = "setMessage";
-
-
 
 export const LOGIN = "login";
 export const LOGOUT = "logout";

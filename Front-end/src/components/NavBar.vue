@@ -6,7 +6,7 @@
           :to="{ name: 'home' }"
           tag="img"
           :src="require('@/assets/animalec_line.png')"
-          style="width:250px; height:50px"
+          style="width:250px; height:auto"
           title="Página principal do Animalec"
         />
       </b-navbar-brand>
