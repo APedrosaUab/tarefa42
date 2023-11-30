@@ -1,8 +1,6 @@
 const Sponsor = require('../models/sponsor.model');
 const { validationResult } = require('express-validator');
 const SponsorMessages = require("../messages/sponsor.messages");
-const JWT = require("jsonwebtoken");
-const CONFIG = require("../config/config");
 
 exports.get = (req, res) => {
     Sponsor.find(req.query, (error, sponsors) => {
@@ -93,9 +91,6 @@ exports.delete = (req, res) => {
     }, (error, result) => {
         if (error) throw error;
         if (result.deletedCount <= 0) return res.status(SponsorMessages.error.e1.http).send(SponsorMessages.error.e1);
-
-        // Remova a lógica de atualização de outros documentos, se não for necessário
-
         return res.status(SponsorMessages.success.s3.http).send(SponsorMessages.success.s3);
     });
 };

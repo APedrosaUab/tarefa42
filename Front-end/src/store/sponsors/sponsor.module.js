@@ -8,7 +8,6 @@ import {
   // Mutations
   SET_SPONSORS,
   SET_MESSAGE,
-  UPDATE_LIKES
 } from "./sponsor.constants";
 
 const state = {
@@ -94,13 +93,6 @@ export const mutations = {
   [SET_MESSAGE]: (state, message) => {
     state.message = message;
   },
-  [UPDATE_LIKES]: (state, payload) => {
-    state.sponsors.forEach(sponsor => {
-      if (sponsor._id === payload.sponsorId) {
-        sponsor.evaluation.push(payload.userId);
-      }
-    });
-  }
 };
 
 export default {

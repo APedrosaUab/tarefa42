@@ -7,4 +7,3 @@ export const REMOVE_SPONSOR = "removeSponsor";
 // Mutations
 export const SET_SPONSORS = "setSponsors";
 export const SET_MESSAGE = "setMessage";
-export const UPDATE_LIKES = "updateLikes";

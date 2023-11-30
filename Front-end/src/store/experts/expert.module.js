@@ -7,8 +7,7 @@ import {
   REMOVE_EXPERT,
   // Mutations
   SET_EXPERTS,
-  SET_MESSAGE,
-  UPDATE_LIKES
+  SET_MESSAGE
 } from "./expert.constants";
 
 const state = {
@@ -93,13 +92,6 @@ export const mutations = {
   },
   [SET_MESSAGE]: (state, message) => {
     state.message = message;
-  },
-  [UPDATE_LIKES]: (state, payload) => {
-    state.experts.forEach(expert => {
-      if (expert._id === payload.expertId) {
-        expert.evaluation.push(payload.userId);
-      }
-    });
   }
 };
 

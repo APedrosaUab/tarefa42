@@ -1,7 +1,6 @@
 const Expert = require('../models/expert.model');
 const { validationResult } = require('express-validator');
 const ExpertMessages = require("../messages/expert.messages");
-const bcrypt = require("bcryptjs");
 
 exports.get = (req, res) => {
     Expert.find(req.query, (error, experts) => {
