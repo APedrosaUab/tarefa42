@@ -11,7 +11,8 @@ import {
 } from "./sponsor.constants";
 
 const state = {
-  sponsors: []
+  sponsors: [],
+  message: ""
 };
 
 const getters = {
@@ -20,7 +21,7 @@ const getters = {
     state.sponsors.find(sponsor => sponsor._id === id),
   getMessage: state => state.message
 };
-
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 const actions = {
   [FETCH_SPONSORS]: ({ commit, rootState }) => {
     return new Promise((resolve, reject) => {
@@ -73,17 +74,19 @@ const actions = {
   [REMOVE_SPONSOR]: ({ commit, rootState }, id) => {
     return new Promise((resolve, reject) => {
       sponsorService.removeSponsor(rootState.auth.token, id).then(
-        res => {
-          commit(SET_MESSAGE, `O patrocinador foi removido com sucesso!`);
-          resolve(res);
+        () => {
+          commit(SET_MESSAGE, `O especialista foi removido com sucesso!`);
+          resolve();
         },
-        err => {
+        (err) => {
           commit(SET_MESSAGE, err.message);
           reject(err);
         }
-      );
+      ).finally(() => {
+        commit(CLEAR_MESSAGE);
+      });
     });
-  }
+  },
 };
 
 export const mutations = {
@@ -92,6 +95,9 @@ export const mutations = {
   },
   [SET_MESSAGE]: (state, message) => {
     state.message = message;
+  },
+  [CLEAR_MESSAGE]: (state) => {
+    state.message = null;
   },
 };
 

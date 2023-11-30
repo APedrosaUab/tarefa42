@@ -104,15 +104,17 @@ export default {
   },
   methods: {
     fetchSponsors() {
-      this.$store.dispatch(`sponsor/${FETCH_SPONSORS}`).then(
-        () => {
-          this.sponsors = this.getSponsors;
-        },
-        err => {
-          this.$alert(`${err.message}`, "Erro", "error");
-        }
-      );
-    },
+    this.$store.dispatch(`sponsor/${FETCH_SPONSORS}`).then(
+      () => {
+        this.sponsors = this.getSponsors;
+      },
+      (err) => {
+        this.$alert(`${err.message}`, "Erro", "error");
+      }
+    ).finally(() => {
+      this.$store.commit('sponsor/CLEAR_MESSAGE');
+    });
+  },
     sort() {
       this.sponsors.sort(this.compareNames);
       this.sortType *= -1;

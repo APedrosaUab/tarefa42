@@ -11,7 +11,8 @@ import {
 } from "./expert.constants";
 
 const state = {
-  experts: []
+  experts: [],
+  message: ""
 };
 
 const getters = {
@@ -20,7 +21,7 @@ const getters = {
     state.experts.find(expert => expert._id === id),
   getMessage: state => state.message
 };
-
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 const actions = {
   [FETCH_EXPERTS]: ({ commit, rootState }) => {
     return new Promise((resolve, reject) => {
@@ -73,26 +74,31 @@ const actions = {
   [REMOVE_EXPERT]: ({ commit, rootState }, id) => {
     return new Promise((resolve, reject) => {
       expertService.removeExpert(rootState.auth.token, id).then(
-        res => {
+        () => {
           commit(SET_MESSAGE, `O especialista foi removido com sucesso!`);
-          resolve(res);
+          resolve();
         },
-        err => {
+        (err) => {
           commit(SET_MESSAGE, err.message);
           reject(err);
         }
-      );
+      ).finally(() => {
+        commit(CLEAR_MESSAGE);
+      });
     });
-  }
+  },
 };
 
 export const mutations = {
-  [SET_EXPERTS]: (state, experts) => {
-    state.experts = experts;
-  },
-  [SET_MESSAGE]: (state, message) => {
-    state.message = message;
-  }
+    [SET_EXPERTS]: (state, experts) => {
+      state.experts = experts;
+    },
+    [SET_MESSAGE]: (state, message) => {
+      state.message = message;
+    },
+    [CLEAR_MESSAGE]: (state) => {
+      state.message = null;
+    },
 };
 
 export default {

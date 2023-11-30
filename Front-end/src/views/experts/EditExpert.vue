@@ -114,7 +114,7 @@ export default {
   },
   data: () => {
     return {
-      expert: {}
+      expert: {},
     };
   },
   computed: {

@@ -104,15 +104,17 @@ export default {
   },
   methods: {
     fetchExperts() {
-      this.$store.dispatch(`expert/${FETCH_EXPERTS}`).then(
-        () => {
-          this.experts = this.getExperts;
-        },
-        err => {
-          this.$alert(`${err.message}`, "Erro", "error");
-        }
-      );
-    },
+    this.$store.dispatch(`expert/${FETCH_EXPERTS}`).then(
+      () => {
+        this.experts = this.getExperts;
+      },
+      (err) => {
+        this.$alert(`${err.message}`, "Erro", "error");
+      }
+    ).finally(() => {
+      this.$store.commit('expert/CLEAR_MESSAGE');
+    });
+  },
     sort() {
       this.experts.sort(this.compareNames);
       this.sortType *= -1;
